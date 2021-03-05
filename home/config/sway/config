@@ -226,15 +226,15 @@ set $unlock 'killall $lockapp'
 bindcode 124 exec '$lock ; swayphone_power_presleep'
 bindcode --locked 124 exec '$unlock ; swayphone_power_wakeup'
 
-exec swayidle -w \
-          timeout 30 'pptk-backlight set_percent 10' \
-	       resume 'swayphone_power_wakeup' \
-          timeout 60 'swayphone_power_rest' \
-               resume 'swayphone_power_wakeup' \
-          timeout 120 'swayphone_power_sleep' \
-          before-sleep 'swayphone_power_presleep' \
-          after-resume 'killall swaylock; swayphone_power_wakeup' \
-	  unlock 'killall swaylock'
+#exec swayidle -w \
+#          timeout 30 'pptk-backlight set_percent 10' \
+#	       resume 'swayphone_power_wakeup' \
+#          timeout 60 'swayphone_power_rest' \
+#               resume 'swayphone_power_wakeup' \
+#          timeout 120 'swayphone_power_sleep' \
+#          before-sleep 'swayphone_power_presleep' \
+#          after-resume 'killall swaylock; swayphone_power_wakeup' \
+#	  unlock 'killall swaylock'
 
 # Scale the touchscreen LCD UI
 output DSI-1 scale 2
@@ -273,9 +273,9 @@ exec lisgd \
 
 # Status Bar
 # side
-exec "rm /tmp/sway_rotation"
-exec "waybar -c ~/.config/waybar/config_v -b side"
-exec "sleep 2 ; kill -10 `pgrep -f 'waybar.*-b side'`"
+#exec "rm /tmp/sway_rotation"
+#exec "waybar -c ~/.config/waybar/config_v -b side"
+#exec "sleep 2 ; kill -10 `pgrep -f 'waybar.*-b side'`"
 exec "waybar -c ~/.config/waybar/config_0 -b top"
 exec "waybar -c ~/.config/waybar/config_1 -b bottom"
 
